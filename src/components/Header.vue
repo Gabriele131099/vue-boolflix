@@ -1,9 +1,9 @@
 <template>
   <div class="">
-    <div class="container-nav">
+    <div class="container-nav col-12">
 
       <div>
-        <ul>
+        <ul class="col-12">
             <li><img src="../assets/logo-netflix.png" alt=""></li>
             <li>Home</li>
             <li>Film</li>
@@ -14,7 +14,7 @@
         </ul>
       </div>
     
-      <div class="container-search">
+      <div class="container-search col-xs-1">
         <div class="search">
           <input type="text" placeholder="Search" v-model="searchFilm" />
           <button @click="$emit('search', searchFilm)"> <i class="fas fa-search"></i></button>
@@ -38,10 +38,14 @@ export default {
 
 
 <style scoped lang="scss">
+    .nav-menu{
+
+    }
     .container-nav
     {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         background-color: black;
         align-items: center;
         img{
@@ -52,6 +56,7 @@ export default {
             list-style-type: none;
             color: white;
             align-items: center;
+            flex-wrap: wrap;
         }
         li{
             padding: 0px 10px;

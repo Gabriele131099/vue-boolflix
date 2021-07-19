@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container col-2">
+  <div class="card-container">
     <div class="description-movie">
       <div v-if="hover"  class="original_title">
         <a href="#">Name: {{original_title}}</a>

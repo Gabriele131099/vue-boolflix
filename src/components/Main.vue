@@ -24,6 +24,7 @@ export default {
   },
   props: {
     arrayMovies: Array,
+    arrayMoviesAll: Array,
     inputSearch: String
   }
   
@@ -34,7 +35,8 @@ export default {
 <style scoped lang="scss">
     .cont{
         background-color: rgb(24, 22, 22);
-        height: calc(100vh - 78px);
+        min-height: calc(100vh - 78px);
+        width: 100vw;
     }
     .container-cards
     {
