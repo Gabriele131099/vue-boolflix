@@ -3,7 +3,7 @@
     <div class="title-container">
       <h1>ORIGINALI NETFLIX </h1>
     </div>
-    <div class="row">
+    <div class="row container-cards">
       <Card v-for="film in arrayMovies" :key="film.id"
       :title='film.title'
       :vote_average='film.vote_average'
@@ -33,5 +33,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+    .container-cards
+    {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        justify-content: center;
+    }
 </style>

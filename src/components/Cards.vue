@@ -1,11 +1,11 @@
 <template>
   <div class="card-container col-2">
-    <div class="hover-cont">
-      <span v-if="hover" class="original_title">
-        <h5>Name: {{original_title}}</h5>
-        <h5>Lenguage: {{original_language}}</h5>
-        <h5>Vote: {{vote_average}}</h5>
-      </span>
+    <div class="description-movie">
+      <div v-if="hover"  class="original_title">
+        <a href="#">Name: {{original_title}}</a>
+        <a href="#">Lenguage: {{original_language}}</a>
+        <a href="#">Vote: {{vote_average}}</a>
+      </div>
     </div>
     <img  
      @mouseover="hover = true"
@@ -33,7 +33,12 @@ export default {
   },
   computed: { 
     newPathImg() { //aggiungiamo il pezzo macante a poster-path!
-      return  'https://image.tmdb.org/t/p/w342' + this.poster_path
+        if (this.poster_path == null) {
+            return './assets/404.jpg'
+            } else{
+            return  'https://image.tmdb.org/t/p/w342' + this.poster_path
+        }
+     
     }
   },
 }
@@ -41,4 +46,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+    .card-container
+    {
+        margin: 10px;
+    }
+    .description-movie{
+        position: relative;
+    }
+    .original_title{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate( -50% , 50%);
+        background-color: rgba( #000000,  .5);
+        width: 100%;
+        text-align: center;
+        a{
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+    }
 </style>
