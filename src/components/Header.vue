@@ -1,15 +1,23 @@
 <template>
-  <div class="container">
-    <div class="row container-nav">
+  <div class="">
+    <div class="container-nav">
 
-      <div class="col-6">
-        <img src="../assets/logo-netflix.png" alt="">
+      <div>
+        <ul>
+            <li><img src="../assets/logo-netflix.png" alt=""></li>
+            <li>Home</li>
+            <li>Film</li>
+            <li>Serie Tv</li>
+            <li>Originali</li>
+            <li>Aggiunti di recente</li>
+            <li>La mia lista</li>
+        </ul>
       </div>
     
-      <div class="col-6 container-search">
-        <div class="font-cont">
+      <div class="container-search">
+        <div class="search">
           <input type="text" placeholder="Search" v-model="searchFilm" />
-          <button @click="$emit('search', searchFilm)"> cerca<i class="fas fa-search"></i></button>
+          <button @click="$emit('search', searchFilm)"> <i class="fas fa-search"></i></button>
         </div>
       </div>
 
@@ -38,6 +46,26 @@ export default {
         align-items: center;
         img{
             width: 100px;
+        }
+        ul{
+            display: flex;
+            list-style-type: none;
+            color: white;
+            align-items: center;
+        }
+        li{
+            padding: 0px 10px;
+        }
+        ul li:hover{
+            color: lightgray;
+        }
+    }
+    .container-search{
+        .search{
+            padding: 20px;
+            input,button {
+                padding: 5px 10px;
+            }
         }
     }
 </style>

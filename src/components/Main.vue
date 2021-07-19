@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
+  <div class="cont">
     <div class="title-container">
-      <h1>ORIGINALI NETFLIX </h1>
+      <div class="title">ORIGINALI NETFLIX </div>
     </div>
     <div class="row container-cards">
       <Card v-for="film in arrayMovies" :key="film.id"
-      :title='film.title'
       :vote_average='film.vote_average'
       :original_title='film.original_title'
       :original_language='film.original_language'
@@ -33,11 +32,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+    .cont{
+        background-color: rgb(24, 22, 22);
+    }
     .container-cards
     {
         display: flex;
         flex-wrap: wrap;
-        padding: 20px;
+        padding: 0 20px;
         justify-content: center;
+    }
+    .title{
+        padding: 30px;
+        font-size: 32px;
+        color: grey;
     }
 </style>
