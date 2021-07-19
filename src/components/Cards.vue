@@ -7,11 +7,11 @@
         <a href="#">Vote: {{vote_average}}</a>
       </div>
     </div>
-    <img  
+    <img v-if='poster_path!==null'
      @mouseover="hover = true"
      @mouseleave="hover = false"
     :src="newPathImg" :alt="`image of ${title}`">
-
+    <img v-if='poster_path===null' src="../assets/error.jpg" alt="">
     <div @mouseover="hover = false" @mouseleave="hover = true" class="title">{{title}}</div>
   </div>
 </template>
@@ -33,11 +33,10 @@ export default {
   },
   computed: { 
     newPathImg() { //aggiungiamo il pezzo macante a poster-path!
-
-            if (this.poster_path !== null) {
-                return  'https://image.tmdb.org/t/p/w342' + this.poster_path
-            }
-            return  '../assets/404.jpg' 
+            
+          
+                return 'https://image.tmdb.org/t/p/w342' + this.poster_path
+            
         }
   },
 }

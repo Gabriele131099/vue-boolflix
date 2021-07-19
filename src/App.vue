@@ -4,7 +4,7 @@
     <Header @search="searchMovie" />
     
     <!-- qui mandiamo al main sia l'input del utente sia l'array filtrato  -->
-    <Main :inputSearch="inputSearch"  :arrayMovies ="filterFilms"/>
+    <Main :inputSearch="inputSearch"  :arrayMovies ="filterFilms" :arrayMoviesAll="arrayMoviesAll"/>
 
   </div>
 </template>
@@ -55,14 +55,11 @@ export default {
   },
   methods: { //si mette in ascolto 
        searchMovie(searchFilm){ 
-           if (searchFilm.length == 0) {
-             this.arrayMovies = this.arrayMoviesAll;
-               return;
-            }                           // con quest chiamata tu ricerchi e colleghi cosa ha digitato il tuo utente
-           axios.get(`https://api.themoviedb.org/3/search/movie?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
-             this.arrayMoviesAll = results.data.results;
-               this.inputSearch = searchFilm.trim()
-           })
+         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
+           this.arrayMoviesAll = results.data.results;
+          this.inputSearch = searchFilm.trim()
+         })
+         
        
    }
     

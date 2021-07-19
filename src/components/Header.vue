@@ -38,9 +38,7 @@ export default {
 
 
 <style scoped lang="scss">
-    .nav-menu{
 
-    }
     .container-nav
     {
         display: flex;

@@ -3,7 +3,7 @@
     <div class="title-container">
       <div class="title">ORIGINALI NETFLIX </div>
     </div>
-    <div class="container-cards">
+    <div v-if="inputSearch.length===0" class="container-cards ">
       <Card v-for="film in arrayMovies" :key="film.id"
       :vote_average='film.vote_average'
       :original_title='film.original_title'
@@ -12,6 +12,16 @@
       :inputSearch="inputSearch"
       />
     </div>
+    <div v-if="inputSearch.length!==0" class="container-cards ">
+      <Card v-for="film in arrayMoviesAll" :key="film.id"
+      :vote_average='film.vote_average'
+      :original_title='film.original_title'
+      :original_language='film.original_language'
+      :poster_path="film.poster_path"
+      :inputSearch="inputSearch"
+      />
+    </div>
+
   </div>
 </template>
 
