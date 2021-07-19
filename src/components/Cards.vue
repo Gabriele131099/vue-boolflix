@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container">
+  <div class="card-container col-2">
     <div class="description-movie">
       <div v-if="hover"  class="original_title">
         <a href="#">Name: {{original_title}}</a>
@@ -33,13 +33,9 @@ export default {
   },
   computed: { 
     newPathImg() { //aggiungiamo il pezzo macante a poster-path!
-        if (this.arrayMovies.backdrop_path == null) {
-            return './assets/404.jpg'
-            } else{
+
             return  'https://image.tmdb.org/t/p/w342' + this.poster_path
         }
-     
-    }
   },
 }
 </script>
@@ -48,7 +44,7 @@ export default {
 <style scoped lang="scss">
     .card-container
     {
-        margin: 10px;
+        margin: 20px;
     }
     .description-movie{
         position: relative;

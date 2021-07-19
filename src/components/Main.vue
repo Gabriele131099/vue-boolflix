@@ -3,7 +3,7 @@
     <div class="title-container">
       <div class="title">ORIGINALI NETFLIX </div>
     </div>
-    <div class="row container-cards">
+    <div class="container-cards">
       <Card v-for="film in arrayMovies" :key="film.id"
       :vote_average='film.vote_average'
       :original_title='film.original_title'
@@ -37,10 +37,10 @@ export default {
     }
     .container-cards
     {
-        display: flex;
         flex-wrap: wrap;
         padding: 0 20px;
         justify-content: center;
+        display: flex;
     }
     .title{
         padding: 30px;

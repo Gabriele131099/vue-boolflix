@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=popular&page=1&include_adult=false').then((result) => {
+    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US').then((result) => {
       this.arrayMovies = result.data.results
    })
     this.searchArrayFilm('')
