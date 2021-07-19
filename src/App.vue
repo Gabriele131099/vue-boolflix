@@ -54,6 +54,10 @@ export default {
   methods: { //si mette in ascolto 
     searchArrayFilm(searchFilm) { // arriva cio che l'utente ha scritto nel input
       this.inputSearch = searchFilm.trim() //trasforma cio che l'utente ha scritto nella nuva stringa!
+    
+      axios.get('https://api.themoviedb.org/3/search/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query='+{searchFilm}).then((result) => {
+      this.arrayMovies = result.data.results
+      })
     }
   }
 }

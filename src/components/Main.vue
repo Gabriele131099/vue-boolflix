@@ -34,6 +34,7 @@ export default {
 <style scoped lang="scss">
     .cont{
         background-color: rgb(24, 22, 22);
+        height: calc(100vh - 78px);
     }
     .container-cards
     {

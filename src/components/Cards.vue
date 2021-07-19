@@ -34,7 +34,10 @@ export default {
   computed: { 
     newPathImg() { //aggiungiamo il pezzo macante a poster-path!
 
-            return  'https://image.tmdb.org/t/p/w342' + this.poster_path
+            if (this.poster_path !== null) {
+                return  'https://image.tmdb.org/t/p/w342' + this.poster_path
+            }
+            return  '../assets/404.jpg' 
         }
   },
 }
