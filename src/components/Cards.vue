@@ -2,9 +2,10 @@
   <div class="card-container">
     <div class="description-movie">
       <div v-if="hover"  class="original_title">
-        <a href="#">Name: {{original_title}}</a>
+        <a href="#">Name: {{original_title}}{{original_name}}</a>
         <a href="#">Lenguage: {{original_language}}<img class="flag" :src="flagOriginalLanguage" :alt="`image of ${title}`"></a>
-        <a href="#">Vote: {{vote_average}}</a>
+        <a href="#">Vote: <i v-for="i in 5" :key="i" class="fa-star" :class="i <= voteRounded ? 'fas' : 'far' "></i>
+ </a>
       </div>
     </div>
     <img
@@ -22,14 +23,17 @@ export default {
   name: 'Cards', 
   props: {
     poster_path: String,
+    vote_average: Number,
     title: String,
     original_title: String,
     original_language: String,
-    vote_average: Number
+    arrayStar:Array,
+    original_name:String
   },
   data() {
     return {
       hover: false,
+      voteRounded: Math.round(this.vote_average / 2),
     };
   },
   computed: { 

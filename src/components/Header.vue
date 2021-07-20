@@ -16,7 +16,7 @@
     
       <div class="container-search col-xs-1">
         <div class="search">
-          <input type="text" placeholder="Search" v-model="searchFilm" />
+          <input type="text" placeholder="Search" v-model="searchFilm"/>
           <button @click="$emit('search', searchFilm)"> <i class="fas fa-search"></i></button>
         </div>
       </div>

@@ -4,7 +4,8 @@
     <Header @search="searchMovie" />
     
     <!-- qui mandiamo al main sia l'input del utente sia l'array filtrato  -->
-    <Main :inputSearch="inputSearch"  :arrayMovies ="filterFilms" :arrayMoviesAll="arrayMoviesAll"/>
+    <Main :inputSearch="inputSearch"  :arrayMovies ="filterFilms" :arrayMoviesAll="arrayMoviesAll"  :arraySeriesTv="arraySeriesTv" 
+      :arraySeriesTvAll="arraySeriesTvAll"/>
 
   </div>
 </template>
@@ -23,15 +24,25 @@ export default {
     return{
       inputSearch: '',
       arrayMovies:[],
-      arrayMoviesAll:[]
+      arrayMoviesAll:[],
+      arraySeriesTv:[],
+      arraySeriesTvAll:[]
     }
   },
   created() {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=multi&page=1&include_adult=false').then((result) => {
       this.arrayMovies = result.data.results
-   })
-    this.searchMovie('')
+   }),
+    this.searchMovie(''),
+
+      axios.get('https://api.themoviedb.org/3/tv/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=multi&page=1&include_adult=false').then((result) => {
+      this.arraySeriesTv = result.data.results
+   }),
+    this.searchSeriesTv('')
+
   },
+
+  
     computed: {
     filterFilms() {
       function searchIn(search, elements) {
@@ -44,9 +55,28 @@ export default {
         return exists;
       }
       if(this.inputSearch.length === 0) {
-        return this.arrayMovies
+        return this.arrayMovies 
+
       } 
-      return this.arrayMovies.filter((element) => {
+        return this.arrayMovies.filter((element) => {
+        return searchIn(this.inputSearch, [element.title])
+      })
+    },
+        filterSeriesTv() {
+      function searchIn(search, elements) {
+        let exists = false;
+        elements.forEach((element) => {
+          if(element.toLowerCase().includes(search.toLowerCase())) {
+            exists = true;
+          }
+        });
+        return exists;
+      }
+      if(this.inputSearch.length === 0) {
+        return this.arraySeriesTv
+
+      } 
+        return this.arraySeriesTv.filter((element) => {
         return searchIn(this.inputSearch, [element.title])
       })
     }
@@ -57,15 +87,16 @@ export default {
            this.arrayMoviesAll = results.data.results;
           this.inputSearch = searchFilm.trim()
          })
-        if (searchFilm.length===0) {
-          axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=multi&page=1&include_adult=false').then((result) => {
-          this.arrayMovies = result.data.results
-          this.inputSearch=searchFilm.trim()
-   })
- }
 
+},
        
+          searchSeriesTv(searchFilm){ 
+         axios.get(`https://api.themoviedb.org/3/search/tv?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
+           this.arraySeriesTvAll = results.data.results;
+          this.inputSearch = searchFilm.trim()
+         })
    }
+
     
  }
 

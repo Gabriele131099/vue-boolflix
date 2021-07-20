@@ -3,6 +3,7 @@
     <div class="title-container">
       <div class="title">ORIGINALI NETFLIX </div>
     </div>
+    <h2>Film</h2>
     <div v-if="inputSearch.length===0" class="container-cards ">
       <Card v-for="film in arrayMovies" :key="film.id"
       :vote_average='film.vote_average'
@@ -21,6 +22,27 @@
       :inputSearch="inputSearch"
       />
     </div>
+      <h2>Serie Tv</h2>
+        <div v-if="inputSearch.length===0" class="container-cards ">
+      <Card v-for="serie in arraySeriesTv" :key="serie.id"
+      :vote_average='serie.vote_average'
+      :original_title='serie.original_name'
+      :original_language='serie.original_language'
+      :poster_path="serie.poster_path"
+      :inputSearch="inputSearch"
+      />
+    </div>
+    <div v-if="inputSearch.length!==0" class="container-cards ">
+      <Card v-for="serie in arraySeriesTvAll" :key="serie.id"
+      :vote_average='serie.vote_average'
+      :original_title='serie.original_name'
+      :original_language='serie.original_language'
+      :poster_path="serie.poster_path"
+      :inputSearch="inputSearch"
+      />
+    </div>
+
+
 
   </div>
 </template>
@@ -35,7 +57,10 @@ export default {
   props: {
     arrayMovies: Array,
     arrayMoviesAll: Array,
-    inputSearch: String
+    inputSearch: String,
+    arraySeriesTvAll:Array,
+    arraySeriesTv:Array
+
   }
   
 }
@@ -47,6 +72,9 @@ export default {
         background-color: rgb(24, 22, 22);
         min-height: calc(100vh - 78px);
         width: 100vw;
+         h2{
+          color: lightgray;
+        }
     }
     .container-cards
     {
@@ -54,6 +82,7 @@ export default {
         padding: 0 20px;
         justify-content: center;
         display: flex;
+       
     }
     .title{
         padding: 30px;
