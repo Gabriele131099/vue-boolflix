@@ -62,9 +62,8 @@ export default {
           this.arrayMovies = result.data.results
           this.inputSearch=searchFilm.trim()
    })
-    
+ }
 
-        }
        
    }
     

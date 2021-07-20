@@ -3,15 +3,16 @@
     <div class="description-movie">
       <div v-if="hover"  class="original_title">
         <a href="#">Name: {{original_title}}</a>
-        <a href="#">Lenguage: {{original_language}}</a>
+        <a href="#">Lenguage: {{original_language}}<img class="flag" :src="flagOriginalLanguage" :alt="`image of ${title}`"></a>
         <a href="#">Vote: {{vote_average}}</a>
       </div>
     </div>
-    <img v-if='poster_path!==null'
+    <img
      @mouseover="hover = true"
      @mouseleave="hover = false"
     :src="newPathImg" :alt="`image of ${title}`">
-    <img v-if='poster_path===null' src="../assets/error.jpg" alt="">
+    
+
     <div @mouseover="hover = false" @mouseleave="hover = true" class="title">{{title}}</div>
   </div>
 </template>
@@ -34,10 +35,17 @@ export default {
   computed: { 
     newPathImg() { //aggiungiamo il pezzo macante a poster-path!
             
-          
-                return 'https://image.tmdb.org/t/p/w342' + this.poster_path
+          if (this.poster_path) {
+            return 'https://image.tmdb.org/t/p/w342' + this.poster_path
+          }else{
+            return require ('../assets/error.jpg')
+          }
+                
             
-        }
+        },
+      flagOriginalLanguage(){
+       return require ('../assets/'+ this.original_language+'.png')
+      },
   },
 }
 </script>
@@ -64,5 +72,9 @@ export default {
             color: white;
             text-decoration: none;
         }
+    }
+    .flag{
+      width: 30px;
+
     }
 </style>
