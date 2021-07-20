@@ -10,7 +10,7 @@
     <img
      @mouseover="hover = true"
      @mouseleave="hover = false"
-    :src="newPathImg" :alt="`image of ${title}`">
+    :src="newPathImg" width="100%" :alt="`image of ${title}`">
     
 
     <div @mouseover="hover = false" @mouseleave="hover = true" class="title">{{title}}</div>

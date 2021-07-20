@@ -5,7 +5,7 @@
     </div>
     <h2 class="container">Film</h2>
     <div v-if="inputSearch.length===0" class="container-cards ">
-      <Card class="col-xs-8 col-md-5 col-xl-3"  v-for="film in arrayMovies" :key="film.id"
+      <Card class="col-xs-10 col-md-5 col-xl-2"  v-for="film in arrayMovies" :key="film.id"
       :vote_average='film.vote_average'
       :original_title='film.original_title'
       :original_language='film.original_language'
@@ -14,7 +14,7 @@
       />
     </div>
     <div v-if="inputSearch.length!==0" class="container-cards ">
-      <Card class="col-xs-8 col-md-5 col-xl-3" v-for="film in arrayMoviesAll" :key="film.id"
+      <Card class="col-xs-8 col-md-5 col-xl-2" v-for="film in arrayMoviesAll" :key="film.id"
       :vote_average='film.vote_average'
       :original_title='film.original_title'
       :original_language='film.original_language'
@@ -24,7 +24,7 @@
     </div>
       <h2 class="container">Serie Tv</h2>
         <div v-if="inputSearch.length===0" class="container-cards ">
-      <Card class="col-xs-8 col-md-5 col-xl-3" v-for="serie in arraySeriesTv" :key="serie.id"
+      <Card class="col-xs-8 col-md-5 col-xl-2" v-for="serie in arraySeriesTv" :key="serie.id"
       :vote_average='serie.vote_average'
       :original_title='serie.original_name'
       :original_language='serie.original_language'
@@ -33,7 +33,7 @@
       />
     </div>
     <div v-if="inputSearch.length!==0" class="container-cards ">
-      <Card class="col-xs-8 col-md-5 col-xl-3" v-for="serie in arraySeriesTvAll" :key="serie.id"
+      <Card class="col-xs-8 col-md-5 col-xl-2" v-for="serie in arraySeriesTvAll" :key="serie.id"
       :vote_average='serie.vote_average'
       :original_title='serie.original_name'
       :original_language='serie.original_language'
@@ -76,10 +76,11 @@ export default {
           color: lightgray;
 
         }
-        img{
+        
+    }
+    img{
           width: 100%;
         }
-    }
     .container-cards
     {
         flex-wrap: wrap;
