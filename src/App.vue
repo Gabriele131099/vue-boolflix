@@ -29,10 +29,8 @@ export default {
   created() {
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=multi&page=1&include_adult=false').then((result) => {
       this.arrayMovies = result.data.results
-      this.arrayMoviesAll = result.data.result
    })
     this.searchMovie('')
-
   },
     computed: {
     filterFilms() {
@@ -59,23 +57,20 @@ export default {
            this.arrayMoviesAll = results.data.results;
           this.inputSearch = searchFilm.trim()
          })
-        axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=multi&page=1&include_adult=false').then((result) => {
-      this.arrayMovies = result.data.results
+        if (searchFilm.length===0) {
+          axios.get('https://api.themoviedb.org/3/movie/popular?api_key=41a2fc67a59ec7a431e06153ce67564d&language=en-US&query=multi&page=1&include_adult=false').then((result) => {
+          this.arrayMovies = result.data.results
+          this.inputSearch=searchFilm.trim()
    })
+    
 
+        }
        
    }
     
  }
 
     }
-  //       searchMovie(searchFilm){ 
-                                 
-  //          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((result) =>{
-  //              this.arrayMovies = result.data.results;
-  //          })   
-  //  } 
-
   
 
 </script>
