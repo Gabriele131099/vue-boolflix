@@ -4,8 +4,7 @@
       <div v-if="hover"  class="original_title">
         <a href="#">Name: {{original_title}}{{original_name}}</a>
         <a href="#">Lenguage: {{original_language}}<img class="flag" :src="flagOriginalLanguage" :alt="`image of ${title}`"></a>
-        <a href="#">Vote: <i v-for="i in 5" :key="i" class="fa-star" :class="i <= voteRounded ? 'fas' : 'far' "></i>
- </a>
+        <a href="#">Vote: <i v-for="i in 5" :key="i" class="fa-star" :class="i <= voteRounded ? 'fas' : 'far' "></i></a>
       </div>
     </div>
     <img

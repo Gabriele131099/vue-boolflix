@@ -3,9 +3,9 @@
     <div class="title-container">
       <div class="title">ORIGINALI NETFLIX </div>
     </div>
-    <h2>Film</h2>
+    <h2 class="container">Film</h2>
     <div v-if="inputSearch.length===0" class="container-cards ">
-      <Card v-for="film in arrayMovies" :key="film.id"
+      <Card class="col-xs-8 col-md-5 col-xl-3"  v-for="film in arrayMovies" :key="film.id"
       :vote_average='film.vote_average'
       :original_title='film.original_title'
       :original_language='film.original_language'
@@ -14,7 +14,7 @@
       />
     </div>
     <div v-if="inputSearch.length!==0" class="container-cards ">
-      <Card v-for="film in arrayMoviesAll" :key="film.id"
+      <Card class="col-xs-8 col-md-5 col-xl-3" v-for="film in arrayMoviesAll" :key="film.id"
       :vote_average='film.vote_average'
       :original_title='film.original_title'
       :original_language='film.original_language'
@@ -22,9 +22,9 @@
       :inputSearch="inputSearch"
       />
     </div>
-      <h2>Serie Tv</h2>
+      <h2 class="container">Serie Tv</h2>
         <div v-if="inputSearch.length===0" class="container-cards ">
-      <Card v-for="serie in arraySeriesTv" :key="serie.id"
+      <Card class="col-xs-8 col-md-5 col-xl-3" v-for="serie in arraySeriesTv" :key="serie.id"
       :vote_average='serie.vote_average'
       :original_title='serie.original_name'
       :original_language='serie.original_language'
@@ -33,7 +33,7 @@
       />
     </div>
     <div v-if="inputSearch.length!==0" class="container-cards ">
-      <Card v-for="serie in arraySeriesTvAll" :key="serie.id"
+      <Card class="col-xs-8 col-md-5 col-xl-3" v-for="serie in arraySeriesTvAll" :key="serie.id"
       :vote_average='serie.vote_average'
       :original_title='serie.original_name'
       :original_language='serie.original_language'
@@ -71,9 +71,13 @@ export default {
     .cont{
         background-color: rgb(24, 22, 22);
         min-height: calc(100vh - 78px);
-        width: 100vw;
+        width: 100%;
          h2{
           color: lightgray;
+
+        }
+        img{
+          width: 100%;
         }
     }
     .container-cards

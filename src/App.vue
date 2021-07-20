@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- ascoltiamo la chiamata che arriva dal header -->
-    <Header @search="searchMovie" />
+    <Header @search="searchMovie"/>
     
     <!-- qui mandiamo al main sia l'input del utente sia l'array filtrato  -->
     <Main :inputSearch="inputSearch"  :arrayMovies ="filterFilms" :arrayMoviesAll="arrayMoviesAll"  :arraySeriesTv="arraySeriesTv" 
@@ -87,16 +87,13 @@ export default {
            this.arrayMoviesAll = results.data.results;
           this.inputSearch = searchFilm.trim()
          })
-
-},
-       
-          searchSeriesTv(searchFilm){ 
-         axios.get(`https://api.themoviedb.org/3/search/tv?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
+                 axios.get(`https://api.themoviedb.org/3/search/tv?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
            this.arraySeriesTvAll = results.data.results;
           this.inputSearch = searchFilm.trim()
          })
-   }
+ 
 
+},
     
  }
 
