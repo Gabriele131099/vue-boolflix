@@ -90,7 +90,7 @@ export default {
         
     }
     .padding-top{
-      padding-top: 70px;
+      padding-top: 80px;
     }
     img{
           width: 100%;

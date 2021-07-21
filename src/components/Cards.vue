@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container">
+  <a :href="original_title+'.html'"><div class="card-container">
     <div class="description-movie">
       <div v-if="hover"  class="original_title">
         <a href="#">Name: {{original_title}}{{original_name}}</a>
@@ -14,7 +14,7 @@
     
 
     <div @mouseover="hover = false" @mouseleave="hover = true" class="title">{{title}}</div>
-  </div>
+  </div></a>
 </template>
 
 <script>
