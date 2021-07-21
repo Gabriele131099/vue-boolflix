@@ -4,13 +4,13 @@
 
       <div>
         <ul class="col-12">
-            <li><img src="../assets/logo-netflix.png" alt=""></li>
-            <li>Home</li>
-            <li>Film</li>
-            <li>Serie Tv</li>
-            <li>Originali</li>
-            <li>Aggiunti di recente</li>
-            <li>La mia lista</li>
+            <li><a href="#"><img  src="../assets/logo-netflix.png" alt=""></a></li> 
+            <li> <a href="#"> Home</a></li>
+            <li> <a href="#"> Film</a></li>
+            <li> <a href="#"> Serie Tv</a></li>
+            <li> <a href="#"> Originali</a></li>
+            <li> <a href="#"> Aggiunti di recente</a></li>
+            <li> <a href="#"> La mia lista</a></li>
         </ul>
       </div>
     
@@ -49,6 +49,10 @@ export default {
         img{
             width: 100px;
         }
+        a{
+          color: white;
+          text-decoration: none;
+        }
         ul{
             display: flex;
             list-style-type: none;
@@ -59,7 +63,7 @@ export default {
         li{
             padding: 0px 10px;
         }
-        ul li:hover{
+        ul li a:hover{
             color: lightgray;
         }
     }

@@ -3,7 +3,7 @@
     <div class="title-container">
       <div class="title">ORIGINALI NETFLIX </div>
     </div>
-    <h2 class="container">Film</h2>
+    <h2 >Film</h2>
     <div v-if="inputSearch.length===0" class="container-cards ">
       <Card class="col-xs-10 col-md-5 col-xl-2"  v-for="film in arrayMovies" :key="film.id"
       :vote_average='film.vote_average'
@@ -22,8 +22,8 @@
       :inputSearch="inputSearch"
       />
     </div>
-      <h2 class="container">Serie Tv</h2>
-        <div v-if="inputSearch.length===0" class="container-cards ">
+      <h2 >Serie Tv</h2>
+    <div v-if="inputSearch.length===0" class="container-cards ">
       <Card class="col-xs-8 col-md-5 col-xl-2" v-for="serie in arraySeriesTv" :key="serie.id"
       :vote_average='serie.vote_average'
       :original_title='serie.original_name'
@@ -41,6 +41,17 @@
       :inputSearch="inputSearch"
       />
     </div>
+    <h2 >Anime</h2>
+    <div v-if="inputSearch.length==0" class="container-cards ">
+      <Card class="col-xs-8 col-md-5 col-xl-2" v-for="anime in arrayAnime" :key="anime.id"
+      :vote_average='anime.vote_average'
+      :original_title='anime.original_name'
+      :original_language='anime.original_language'
+      :poster_path="anime.poster_path"
+      :inputSearch="inputSearch"
+      />
+    </div>
+
 
 
 
@@ -59,7 +70,8 @@ export default {
     arrayMoviesAll: Array,
     inputSearch: String,
     arraySeriesTvAll:Array,
-    arraySeriesTv:Array
+    arraySeriesTv:Array,
+    arrayAnime:Array
 
   }
   
@@ -74,7 +86,7 @@ export default {
         width: 100%;
          h2{
           color: lightgray;
-
+            margin-left: 30px ;
         }
         
     }
@@ -83,12 +95,38 @@ export default {
         }
     .container-cards
     {
-        flex-wrap: wrap;
         padding: 0 20px;
         justify-content: center;
         display: flex;
+        overflow-x: scroll;
+        position: relative;
+        margin-left: 30px;
+        margin-right: 30px;
        
     }
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+   box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+     box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
     .title{
         padding: 30px;
         font-size: 32px;
