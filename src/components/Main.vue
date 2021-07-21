@@ -22,7 +22,7 @@
       :inputSearch="inputSearch"
       />
     </div>
-      <h2 >Serie Tv</h2>
+      <h2 class="padding-top">Serie Tv</h2>
     <div v-if="inputSearch.length===0" class="container-cards ">
       <Card class="col-xs-8 col-md-5 col-xl-2" v-for="serie in arraySeriesTv" :key="serie.id"
       :vote_average='serie.vote_average'
@@ -41,7 +41,7 @@
       :inputSearch="inputSearch"
       />
     </div>
-    <h2 >Anime</h2>
+    <h2 class="padding-top">Anime</h2>
     <div v-if="inputSearch.length==0" class="container-cards ">
       <Card class="col-xs-8 col-md-5 col-xl-2" v-for="anime in arrayAnime" :key="anime.id"
       :vote_average='anime.vote_average'
@@ -83,22 +83,23 @@ export default {
     .cont{
         background-color: rgb(24, 22, 22);
         min-height: calc(100vh - 78px);
-        width: 100%;
          h2{
           color: lightgray;
             margin-left: 30px ;
         }
         
     }
+    .padding-top{
+      padding-top: 70px;
+    }
     img{
           width: 100%;
         }
     .container-cards
     {
-        padding: 0 20px;
         justify-content: center;
         display: flex;
-        overflow-x: scroll;
+        overflow-x:scroll;
         position: relative;
         margin-left: 30px;
         margin-right: 30px;

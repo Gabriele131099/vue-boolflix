@@ -98,7 +98,7 @@ export default {
            this.arrayMovies = results.data.results;
           this.inputSearch = searchFilm.trim()
          })
-          axios.get(`https://api.themoviedb.org/3/search/movie?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
+          axios.get(`https://api.themoviedb.org/3/search/tv?api_key=41a2fc67a59ec7a431e06153ce67564d&query=${searchFilm}`).then((results) =>{
            this.arraySeriesTv = results.data.results;
           this.inputSearch = searchFilm.trim()
          })
